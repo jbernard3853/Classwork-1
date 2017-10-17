@@ -1,16 +1,9 @@
 package Shape;
 
-public class Square implements Shape {
-	private double side;
-	
-	public Square(double side) {
-		this.side = side;
+public class Square extends Rectangle  {
+
+	public Square(double length) {
+		super(length,length);
 	}
 	
-	public double perimeter() {
-		return 4 * side;
-	}
-	public double area() {
-		return side * side;
-	}
 }
