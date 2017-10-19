@@ -1,7 +1,7 @@
 package shapes;
 
 /**
- * @author Mr Levin
+ * @author Raymond Cheung
  * Created 10/16/2017
  * 
  * Lab 2.1 shapes
@@ -11,6 +11,8 @@ package shapes;
  * 
  * Choose one of the following: Triangle, Pentagon, Hexagon, Heptagon, etc.
  * Choose one of the following: Rhombus, Trapezoid, Parallelogram, Kite
+ * 
+ * Created Triangle & Parallelogram
  * 
  * Both classes must extend shape, and implement all necessary methods.
  */

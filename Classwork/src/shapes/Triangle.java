@@ -1,5 +1,12 @@
 package shapes;
 
+/**
+ * @author Raymond Cheung
+ * Created 10/16/2017
+ * Lab 2.1 shapes
+ *
+ */
+
 public class Triangle implements Shape {
 	private double a;
 	private double b;

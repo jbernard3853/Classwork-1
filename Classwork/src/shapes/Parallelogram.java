@@ -1,6 +1,7 @@
 package shapes;
 
 public class Parallelogram implements Shape {
+	
 	private double a;
 	private double base;
 	private double height;

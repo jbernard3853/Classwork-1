@@ -1,10 +1,10 @@
 package shapes;
 /**
- * @author Mr Levin
+ * @author Raymond Cheung
  * Created 10/16/2017
  * Lab 2.1 shapes
- *
  */
+
 public class Rectangle implements Shape{
 	
     private double length;
@@ -14,7 +14,6 @@ public class Rectangle implements Shape{
         this.length = length;
         this.width = width;
     }
-
 
     @Override
     public double calculateArea() {

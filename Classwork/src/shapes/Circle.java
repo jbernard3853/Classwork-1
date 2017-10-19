@@ -1,10 +1,11 @@
 package shapes;
 /**
- * @author Mr Levin
+ * @author Raymond Cheung
  * Created 10/16/2017
  * Lab 2.1 shapes
  *
  */
+
 public class Circle implements Shape{
 	
     //fields
@@ -15,10 +16,10 @@ public class Circle implements Shape{
      * Constructor method
      * @param radius
      */
+    
     public Circle(int radius){
 		this.radius = radius;
     }
-
 
     @Override
     public double calculateArea() {

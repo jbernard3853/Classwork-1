@@ -1,13 +1,14 @@
 package shapes;
+
 /**
- * @author Mr Levin
+ * @author Raymond Cheung
  * Created 10/16/2017
  * Lab 2.1 shapes
  *
  */
-public interface Shape{
-	
 
+public interface Shape {
+	
     public abstract double calculateArea();
 
     public abstract double calculatePerimeter();
