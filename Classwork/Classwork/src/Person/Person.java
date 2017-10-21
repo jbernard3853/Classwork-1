@@ -17,7 +17,7 @@ public abstract class Person {
 	public abstract String getGreeting();
 	
 	public int calculateAge() {
-		Date date = new Date();
+		Date date = new Date(); 
 		System.out.println(dob);
 		return 0;
 	}
