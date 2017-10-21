@@ -1,8 +1,7 @@
-package shapes;
+package Shapes;
 
 /**
- * @author Raymond Cheung
- * Created 10/16/2017
+ * @author Mr Levin Created 10/16/2017
  * 
  * Lab 2.1 shapes
  * Create implement all necessary methods in this package to run the code below successfully.

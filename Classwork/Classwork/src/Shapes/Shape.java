@@ -1,10 +1,9 @@
-package shapes;
+package Shapes;
 
 /**
- * @author Raymond Cheung
+ * @author Mr Levin Created 10/16/2017 Lab 2.1 shapes
  * Created 10/16/2017
  * Lab 2.1 shapes
- *
  */
 
 public interface Shape {

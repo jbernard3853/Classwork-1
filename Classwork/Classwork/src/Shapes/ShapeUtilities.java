@@ -1,12 +1,10 @@
-package shapes;
+package Shapes;
 
 import java.util.Random;
 
 /**
- * @author Raymond Cheung
- * Created 10/16/2017
- * Lab 2.1 shapes
- *
+ * @author Mr Levin Created 10/16/2017 Lab 2.1 shapes
+ * @author Raymond Cheung Edited 10/21/2017
  */
 
 public class ShapeUtilities {
@@ -24,17 +22,16 @@ public class ShapeUtilities {
         switch (x) 
         {
             case 0:
-                return new Circle(rand.nextInt(100));
+                return new Circle(rand.nextInt(100) +1);
             case 1:
-                return new Rectangle(rand.nextInt(50), rand.nextInt(50));
+                return new Rectangle(rand.nextInt(50) +1, rand.nextInt(50) +1);
             case 2:
-                return new Square(rand.nextInt(50));
+                return new Square(rand.nextInt(50) +1);
             case 3:
-                return new Triangle(rand.nextInt(50),rand.nextInt(50),rand.nextInt(50));
+                return new Triangle(rand.nextInt(50) +1 ,rand.nextInt(50) +1 ,rand.nextInt(50) +1);
             default:
-            	return new Circle(rand.nextInt(100));
+                return new Circle(rand.nextInt(100) +1);
         }
-
     }
     
     /**

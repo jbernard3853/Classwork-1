@@ -1,4 +1,10 @@
-package shapes;
+package Shapes;
+
+/**
+ * @author Raymond Cheung
+ * Created 10/19/2017
+ * Parallelogram class
+ */
 
 public class Parallelogram implements Shape {
 	
