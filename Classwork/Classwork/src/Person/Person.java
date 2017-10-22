@@ -18,7 +18,7 @@ public abstract class Person {
 	
 	public int calculateAge() {
 		Date date = new Date(); 
-		System.out.println(dob);
+		System.out.println(dob); 
 		return 0;
 	}
 	
