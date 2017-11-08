@@ -4,27 +4,43 @@ public class ArrayMethods {
 
 		public static void main(String[] args) {
 			int[] test = {3,2,2,1,3,4,6,7};
-			System.out.println(removeDuplicates(test));
+			int[] dupes = removeDuplicates(test);
+			for (int i = 0; i < dupes.length; i++) {
+				System.out.println(dupes[i]);			
+			}
 		}
 		
-		
-		public static int[ ] removeDuplicates(int[] list)
+		public static int[] removeDuplicates(int[] list)
 		{
-			int[] cleaned = new Int;
-			for (int i = 0; i < list.length-1; i++) {
+			int[] unique = new int[list.length];
+			boolean isDupe = false;
+			for (int i = 0; i < list.length; i++) {
 				for (int j = i+1; j < list.length; j++) {
-					if (list[i] != list[j]) {
-						cleaned[i] = list[i]; 
+					if (list[i] == list[j]) {
+						isDupe = true;
+					}
+					if (isDupe == false) {
+						unique = list[i];
 					}
 				}
 			}
-			return cleaned;
+			return unique;
 		}
 		
 		public static int[][] productArray(int[] arr1, int[] arr2)
-		
+		// row column
 		{
-			
+			int[][] product = new int[arr1.length][arr1.length];
+			int row = 0;
+			int column = 0;
+			if (arr1.length == arr2.length) {
+			for (int num : arr1) {
+				for (int x: arr2) {
+					product[row][column] = num * x;
+					row++;
+				}
+			}
+			}
 		}
 		
 		public static int[ ][ ] pascalTriangle(int n)
