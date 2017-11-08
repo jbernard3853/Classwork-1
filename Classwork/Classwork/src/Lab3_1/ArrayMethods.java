@@ -25,7 +25,7 @@ public class ArrayMethods {
 				}
 			}
 			return unique;
-		}
+		} 
 		
 		public static int[][] productArray(int[] arr1, int[] arr2)
 		// row column
