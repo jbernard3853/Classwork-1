@@ -1,13 +1,13 @@
 package Lab3_1;
 
+import Arrays.CopyArrays;
+
 public class ArrayMethods {
 
 		public static void main(String[] args) {
 			int[] test = {3,2,2,1,3,4,6,7};
 			int[] dupes = removeDuplicates(test);
-			for (int i = 0; i < dupes.length; i++) {
-				System.out.println(dupes[i]);			
-			}
+			CopyArrays.printArray(dupes);
 		}
 		
 		public static int[] removeDuplicates(int[] list)
