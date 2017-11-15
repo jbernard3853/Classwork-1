@@ -30,7 +30,7 @@ public class BinarySearch {
 			//System.out.println(index);
 			if (guess == query) {
 				return index;
-			}
+			} 
 			if (guess > query) {
 				return binarySearch(nums,query,first,index);
 			}
