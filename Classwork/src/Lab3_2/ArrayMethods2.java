@@ -2,7 +2,7 @@ package Lab3_2;
 
 import java.util.Arrays;
 
-import Arrays.*;
+import LearningJavaTheHardWay.*;
 
 /**
  * Lab 3.2

@@ -1,6 +1,6 @@
 package Lab3_1;
 
-import Arrays.CopyArrays;
+import LearningJavaTheHardWay.CopyArrays;
 
 /**
  * Lab 3.1

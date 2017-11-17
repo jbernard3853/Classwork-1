@@ -1,4 +1,4 @@
-package Arrays;
+package LearningJavaTheHardWay;
 
 public class BinarySearch {
 	public static void main (String[] args) {

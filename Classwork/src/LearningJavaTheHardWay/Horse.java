@@ -1,4 +1,4 @@
-package Arrays;
+package LearningJavaTheHardWay;
 
 public interface Horse {
 	
