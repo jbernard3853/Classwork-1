@@ -25,11 +25,11 @@ public class EveryOther {
 				result[index] = list1[j];
 			}
 		}
-		else {
+		else // no need for else-if as if they're equal it will do nothing {
 			for (int j = list1.length; j < list2.length; j++) {
 				result[index] = list1[j];
 			}
 		}
 		return result;
-		}
+	}
 }
