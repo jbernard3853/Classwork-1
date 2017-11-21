@@ -2,7 +2,7 @@ package LearningJavaTheHardWay;
 
 public class EveryOther {
 	
-	public static void main(String[] args_) {
+	public static void main(String[] args) {
 		String[] arr1 = {"Hello","how ", "you"};
 		String[] arr2 = {", ", "are ", "?"};
 		
@@ -25,7 +25,7 @@ public class EveryOther {
 				result[index] = list1[j];
 			}
 		}
-		else // no need for else-if as if they're equal it will do nothing {
+		else { // no need for else-if since if they're equal it will do nothing {
 			for (int j = list1.length; j < list2.length; j++) {
 				result[index] = list1[j];
 			}
