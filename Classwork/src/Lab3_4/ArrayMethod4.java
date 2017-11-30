@@ -1,22 +1,31 @@
-package QuickSort;
+package Lab3_4;
 
+import java.util.HashMap;
 import java.util.Random;
 import LearningJavaTheHardWay.CopyArrays;
 
 /**
+ * 
  * @author Alex Feng, Raymond Cheung
+ *
  */
 
-public class quickSort {
+public class ArrayMethod4 {
 	
 	public static void main(String[] args) {
 		Random r = new Random();
 		int[] arr = new int[] {r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000)};
-		//CopyArrays.printArray(arr);
-		quickSort(arr, 0, arr.length);	
+		// pre-sorted Array
+		int[] span = new int[] {1, 4, 2, 1, 4, 4, 4};
+		/*CopyArrays.printArray(arr);
+		quickSort(arr, 0, arr.length);
+		//sorted Array
+		 */
 		long time = System.nanoTime();
 		CopyArrays.printArray(arr);
+		System.out.println(maxSpan(span));
 	    System.out.println(System.nanoTime() - time);
+
 	}
 	
 	/**
@@ -74,4 +83,36 @@ public class quickSort {
 			quickSort(arr, pivotIdx + 1, j);
 		}
 	}
+	
+	public static int maxSpan(int[] nums) {
+		if (nums.length == 0) {
+			return 0;
+		}
+		  HashMap<Integer, int[]> map = new HashMap<>();
+		  boolean duplicate = false;
+		  for (int i = 0; i < nums.length; i++) {
+		    int[] val = map.get(nums[i]);
+		    if (val == null) {
+		    	map.put(nums[i], new int[] {i, 1});
+		    } else {
+		    	duplicate = true;
+		      int idx = val[0];
+		      int num = val[1];
+		      if (i - idx > num) {
+		    	  map.put(nums[i], new int[] {idx, i - idx});
+		      }
+		    }
+		  }
+		  if (!duplicate) {
+			  return 1; 
+		  }
+		  int max = 0;
+		  for (int[] value : map.values()) {
+			  if (value[1] > max) {
+				  max = value[1];
+			  }
+		  }
+		  return max + 1;
+		}
+
 }
