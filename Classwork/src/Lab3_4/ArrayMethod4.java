@@ -83,36 +83,5 @@ public class ArrayMethod4 {
 			quickSort(arr, pivotIdx + 1, j);
 		}
 	}
-	
-	public static int maxSpan(int[] nums) {
-		if (nums.length == 0) {
-			return 0;
-		}
-		  HashMap<Integer, int[]> map = new HashMap<>();
-		  boolean duplicate = false;
-		  for (int i = 0; i < nums.length; i++) {
-		    int[] val = map.get(nums[i]);
-		    if (val == null) {
-		    	map.put(nums[i], new int[] {i, 1});
-		    } else {
-		    	duplicate = true;
-		      int idx = val[0];
-		      int num = val[1];
-		      if (i - idx > num) {
-		    	  map.put(nums[i], new int[] {idx, i - idx});
-		      }
-		    }
-		  }
-		  if (!duplicate) {
-			  return 1; 
-		  }
-		  int max = 0;
-		  for (int[] value : map.values()) {
-			  if (value[1] > max) {
-				  max = value[1];
-			  }
-		  }
-		  return max + 1;
-		}
 
 }
