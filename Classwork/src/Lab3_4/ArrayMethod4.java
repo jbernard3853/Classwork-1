@@ -1,33 +1,16 @@
 package Lab3_4;
 
-import java.util.HashMap;
-import java.util.Random;
-import LearningJavaTheHardWay.CopyArrays;
-
 /**
- * 
+ * Contains partition, quickSort, countingSort
  * @author Alex Feng, Raymond Cheung
- *
+ * @since 11/27/2017
  */
-
 public class ArrayMethod4 {
-	
-	public static void main(String[] args) {
-		Random r = new Random();
-		int[] arr = new int[] {r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), r.nextInt(1000)};
-		// pre-sorted Array
-		int[] span = new int[] {1, 4, 2, 1, 4, 4, 4};
-		/*CopyArrays.printArray(arr);
-		quickSort(arr, 0, arr.length);
-		//sorted Array
-		 */
-		long time = System.nanoTime();
-		CopyArrays.printArray(arr);
-		System.out.println(maxSpan(span));
-	    System.out.println(System.nanoTime() - time);
 
+	public static void main(String[] args) {
+		
 	}
-	
+
 	/**
 	 * Partitions an array using the first item in the array. 
 	 * @param list the array to be partitioned.
@@ -83,5 +66,35 @@ public class ArrayMethod4 {
 			quickSort(arr, pivotIdx + 1, j);
 		}
 	}
-
+	
+	/**
+	 * Sorts an array of integers using counting sort
+	 * 
+	 * Pros: O(n) for integers
+	 * Cons: A limited range of integers has to be specified
+	 * 		 Range of integers is limited by memory
+	 * 
+	 * For the first iteration, record the number of occurrences of an integer in an integer array with the key being the number
+	 * and the value being the number of occurrences
+	 * 
+	 * For the second iteration, insert each number starting from 0 to n (where n is the max) with the respective number of occurrences
+	 * @param arr
+	 * @return
+	 */
+	public static int[] customSort(int[] arr) {
+		int[] stored = new int[65536];
+		int[] result = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int num = arr[i];
+			stored[num]++;
+		}
+		int resultIdx = 0;
+		for (int i = 0; i < stored.length; i++) {
+			while (stored[i] > 0) {
+				result[resultIdx++] = i;
+				stored[i]--;
+			}
+		}
+		return result;
+	}
 }
