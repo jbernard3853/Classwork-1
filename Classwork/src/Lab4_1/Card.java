@@ -1,7 +1,7 @@
 package Lab4_1;
 
 /**
- * Lab 4_1
+ * Representation of Card
  * @author Raymond Cheung
  */
 
