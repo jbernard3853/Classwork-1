@@ -25,29 +25,15 @@ public class CSVUtilities {
 		  try (BufferedReader br = new BufferedReader(file)){
 	            String line = br.readLine();
 	            
-	            while (line != null) {
-	            	String[] attributes = line.split(",");
-	            	/*
-					for(String s :attributes) {
-						System.out.println(s);
-					}
-					*/
-	            	this.CVSData.addAll(Arrays.asList(attributes));
+	            while (line != null) {					
+	            	this.CVSData.add(line);
 	            	line = br.readLine();
 	        }
 	        } catch(IOException ioe) {
 	        	ioe.printStackTrace();
 	        }
 	}
-	
-	/*
-	public static Restaurant createRestaurant(String[] metadata) {
-		String name = metadata[0];
-		String price = metadata[1];
-		return new Salad(name,price);
-	}
-	 */
-	
+
 	//Return an ArrayList with the headers for each column
 	public List<String> getColumnHeaders(){
 		ArrayList<String> results = new ArrayList<>();
@@ -60,33 +46,36 @@ public class CSVUtilities {
 
 	//Return an ArrayList with the data for a column specified
 	public List<String> getDataString(int column){
-		ArrayList<String> results = new ArrayList<>();
-		for (String s: CVSData) {
-			String[] r = s.split(",");
-			results.add(r[column]);
+		List<String> results = new ArrayList<>();
+		for (int i = 1; i<CVSData.size(); i++) {
+			String[] r = CVSData.get(i).split(",");
+			if(r.length > column) {
+				results.add(r[column]);
+			}
+			else {
+				results.add("Z");
+			}
 		}
 		return results;
 	}
 
 	//Return an ArrayList with the data converted to Integer
 	public List<Integer> getDataInt(int column){
-		ArrayList<Integer> result = new ArrayList<>();
-		for(String s: CVSData) {
-			String[] r = s.split(",");
-			result.add(Integer.parseInt(s));
+		List<Integer> result = new ArrayList<>();
+		for (int i = 1; i<CVSData.size(); i++) {
+			String[] r = CVSData.get(i).split(",");
+			result.add(Integer.parseInt(r[column]));
 		}
 		return result;
 	}
 
 	//Return an ArrayList with the data converted to Double
 	public List<Double> getDataDouble(int column){
-		ArrayList<Double> result = new ArrayList<>();
-		for(String s: CVSData) {
-			String[] r = s.split(",");
-			result.add(Double.parseDouble(s));
+		List<Double> result = new ArrayList<>();
+		for (int i = 1; i<CVSData.size(); i++) {
+			String[] r = CVSData.get(i).split(",");
+			result.add(Double.parseDouble(r[column]));
 		}
 		return result;
 	}
-
-
 }
