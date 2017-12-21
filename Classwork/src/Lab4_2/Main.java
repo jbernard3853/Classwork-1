@@ -44,19 +44,13 @@ public class Main extends Application {
 			XYChart.Series BRONX = new XYChart.Series();
 			XYChart.Series QUEENS = new XYChart.Series();
 			XYChart.Series STATENISLAND = new XYChart.Series();
-			
+			bc.getData().addAll(BROOKLYN,MANHATTAN);
 			displayData(BROOKLYN, chart,brooklyn,"BROOKLYN");
 			displayData(MANHATTAN, chart,manhattan,"MANHATTAN");
 			displayData(BRONX, chart,bronx,"BRONX");
 			displayData(QUEENS, chart,queens,"QUEENS");
 			displayData(STATENISLAND, chart,statenisland,"STATEN ISLAND");
 			       
-
-			  for(Node n:bc.lookupAll(".default-color0.chart-bar")) {
-		            n.setStyle("-fx-bar-fill: red;");
-		        }
-		    Node n = bc.lookup(".data0.chart-bar");
-			n.setStyle("-fx-bar-fill: green");
 
 			Scene scene = new Scene(bc,800,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -70,9 +64,9 @@ public class Main extends Application {
 	
 	public static void displayData(XYChart.Series<String,Number> series, BarChartBox chart, List<Integer> theData,String borough) {
 		for (int s: theData) {
-			chart.addData(series,borough, s);
+		       series.getData().add(new XYChart.Data<>(borough, s));
 		}   
-                      
+                 
          }             
 	
 	public static void main(String[] args) {
