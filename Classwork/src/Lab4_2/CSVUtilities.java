@@ -78,4 +78,27 @@ public class CSVUtilities {
 		}
 		return result;
 	}
+	
+	public static int gradeCount(CSVUtilities csvFile, String borough, String grade) {
+		int result = 0;
+		List<String> boroughs = csvFile.getDataString(1);
+		List<String> grades = csvFile.getDataString(2);
+		for (int i = 0; i < boroughs.size(); i++) {
+			if(boroughs.get(i) != null && grades.get(i) != null && boroughs.get(i).equals(borough)) {
+				if (grades.get(i).equals(grade)) {
+					result++;
+				}
+			}
+		}
+		return result;
+	}
+	
+	public static List<Integer> getAllGrades(CSVUtilities csvFile, String borough) {
+		List<Integer> total = new ArrayList<>();
+		String[] grade = {"A","B","C"};
+		for (String s: grade) {
+			total.add(gradeCount(csvFile, borough, s));
+		}
+		return total;
+	}
 }
