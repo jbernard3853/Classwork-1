@@ -17,7 +17,14 @@ import java.util.List;
 import Lab4_2.CSVUtilities;
 
 public class Main extends Application {
+	
+	List<Integer> b;
+	List<Integer> m;
+	List<Integer> x;
+	List<Integer> q;
+	List<Integer> s;
 
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -31,27 +38,21 @@ public class Main extends Application {
 		    yAxis.setLabel("Counts");
 		    BarChart bc = new BarChart(xAxis, yAxis);
 		    bc.setTitle("Restaurant Grades by Borough");
-		   
-		    BarChartBox chart = new BarChartBox(bc);
-		    List<Integer> brooklyn = CSVUtilities.getAllGrades(myCSV, "BROOKLYN");
-			List<Integer> manhattan = CSVUtilities.getAllGrades(myCSV, "MANHATTAN");
-			List<Integer> bronx = CSVUtilities.getAllGrades(myCSV, "BRONX");
-			List<Integer> queens = CSVUtilities.getAllGrades(myCSV, "QUEENS");
-			List<Integer> statenisland = CSVUtilities.getAllGrades(myCSV, "STATEN ISLAND");
+		   			
+			XYChart.Series gradeA = new XYChart.Series();
+			XYChart.Series gradeB = new XYChart.Series();
+			XYChart.Series gradeC = new XYChart.Series();			
 			
-			XYChart.Series BROOKLYN = new XYChart.Series();
-			XYChart.Series MANHATTAN = new XYChart.Series();
-			XYChart.Series BRONX = new XYChart.Series();
-			XYChart.Series QUEENS = new XYChart.Series();
-			XYChart.Series STATENISLAND = new XYChart.Series();
-			bc.getData().addAll(BROOKLYN,MANHATTAN);
-			displayData(BROOKLYN, chart,brooklyn,"BROOKLYN");
-			displayData(MANHATTAN, chart,manhattan,"MANHATTAN");
-			displayData(BRONX, chart,bronx,"BRONX");
-			displayData(QUEENS, chart,queens,"QUEENS");
-			displayData(STATENISLAND, chart,statenisland,"STATEN ISLAND");
-			       
-
+		    b = CSVUtilities.getAllGrades(myCSV, "BROOKLYN");
+			m = CSVUtilities.getAllGrades(myCSV, "MANHATTAN");
+			x = CSVUtilities.getAllGrades(myCSV, "BRONX");
+			q = CSVUtilities.getAllGrades(myCSV, "QUEENS");
+			s = CSVUtilities.getAllGrades(myCSV, "STATEN ISLAND");
+			
+			displayData(gradeA, bc,0, "Grade A");
+			displayData(gradeB, bc,1, "Grade B");
+			displayData(gradeC, bc,2, "Grade C");
+			       			
 			Scene scene = new Scene(bc,800,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -62,11 +63,14 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void displayData(XYChart.Series<String,Number> series, BarChartBox chart, List<Integer> theData,String borough) {
-		for (int s: theData) {
-		       series.getData().add(new XYChart.Data<>(borough, s));
-		}   
-                 
+	public void displayData(XYChart.Series<String,Number> series, BarChart chart, int idx, String name) {
+			   series.setName(name);
+		       series.getData().add(new XYChart.Data<>("BROOKLYN", b.get(idx)));        
+		       series.getData().add(new XYChart.Data<>("MANHATTAN", m.get(idx))); 
+		       series.getData().add(new XYChart.Data<>("BRONX", x.get(idx)));                 
+		       series.getData().add(new XYChart.Data<>("QUEENS", q.get(idx)));                 
+		       series.getData().add(new XYChart.Data<>("STATEN ISLAND", s.get(idx)));        
+		       chart.getData().add(series);
          }             
 	
 	public static void main(String[] args) {
